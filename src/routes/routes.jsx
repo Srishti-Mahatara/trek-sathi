@@ -1,16 +1,16 @@
+import LoginPage from "../pages/auth/login/LoginPage";
+import SignupPage from "../pages/auth/signup/SignupPage";
 import HomePage from "../pages/home";
-import { APP_ROUTES } from "./constansts";
+import { APP_ROUTES, AUTHENTICATION_ROUTES } from "./constansts";
 
 export const AppRoutes = [
-  { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
-  // { path: APP_ROUTES.APP_ACCOUNTSETUP, element: <AccountSetup /> },
-  // { path: APP_ROUTES.APP_COMPANYDETAILS, element: <CompanyDetails /> },
-  // { path: APP_ROUTES.APP_CHAT, element: <StaffPage /> },
-];
+    { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
+    { path: APP_ROUTES.APP_PROFILE, element: <div>Profile page</div> },
+    { path: APP_ROUTES.APP_EXPLORE, element: <div>Explore page</div> }];
 
 export const AuthRoutes = [
-  // { path: AUTHENTICATION_ROUTES.AUTH_ROOT, element: <LoginForm /> },
-  // { path: AUTHENTICATION_ROUTES.AUTH_SIGNUP, element: <SignupForm /> },
+  { path: AUTHENTICATION_ROUTES.AUTH_ROOT, element: <LoginPage /> },
+  { path: AUTHENTICATION_ROUTES.AUTH_SIGNUP, element: <SignupPage /> },
 ];
 
 export const AdminRoutes = [

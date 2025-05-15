@@ -6,7 +6,8 @@ export const BASE_ROUTES = {
 
 export const APP_ROUTES = {
   APP_ROOT: "",
-  APP_ABOUT: "about"
+  APP_PROFILE: "profile",
+  APP_EXPLORE: "explore",
 };
 
 export const AUTHENTICATION_ROUTES = {

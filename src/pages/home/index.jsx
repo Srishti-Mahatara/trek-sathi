@@ -1,27 +1,9 @@
-import React from "react";
+import Footer from "../../components/partials/Footer.jsx";
+import Header from "../../components/partials/Header.jsx";
 
 const HomePage = () => {
   return (
     <div>
-      <header>
-        <nav className="navbar">
-          <a className="logo" href="index.html">
-            <i className="fas fa-globe-americas"></i> TravelBuddy
-          </a>
-          <div className="controls">
-            <a className="link" href="explore.html">
-              <i className="fas fa-compass"></i> Explore
-            </a>
-            <a className="link" href="profile.html">
-              <i className="fas fa-user-circle"></i> Profile
-            </a>
-            <a className="button login-button" href="login.html">
-              <i className="fas fa-sign-in-alt"></i> Login
-            </a>
-            {/* <div className="button"><i className="fas fa-sign-out-alt"></i> Logout</div>  */}
-          </div>
-        </nav>
-      </header>
       <main>
         <section className="hero">
           <div className="hero-header">
@@ -276,81 +258,6 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-
-      <footer>
-        <div className="footer-content">
-          <div className="footer-logo">
-            <div className="logo">
-              <i className="fas fa-globe-americas"></i> TravelBuddy
-            </div>
-            <p>
-              Your trusted companion for authentic travel experiences around the
-              world.
-            </p>
-          </div>
-          <div className="footer-links">
-            <div className="link-group">
-              <h3>Company</h3>
-              <ul>
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="#">Careers</a>
-                </li>
-                <li>
-                  <a href="#">Press</a>
-                </li>
-                <li>
-                  <a href="#">Partners</a>
-                </li>
-              </ul>
-            </div>
-            <div className="link-group">
-              <h3>Resources</h3>
-              <ul>
-                <li>
-                  <a href="#">Travel Guides</a>
-                </li>
-                <li>
-                  <a href="#">FAQs</a>
-                </li>
-                <li>
-                  <a href="#">Support</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="newsletter">
-            <h3>Stay Updated</h3>
-            <p>Subscribe to receive travel tips and exclusive offers</p>
-            <div className="subscribe-form">
-              <input type="email" placeholder="Your email address" />
-              <button className="button">Subscribe</button>
-            </div>
-            <div className="social-icons">
-              <a href="#">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-pinterest"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="copyright">
-          <p>&copy; 2025 TravelBuddy. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };

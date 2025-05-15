@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { AppRoutes } from "./routes";
+import { AppRoutes, AuthRoutes } from "./routes";
 import AppLayout from "../layouts/AppLayout";
 
 // import LoginLayout from "../layouts/LoginLayout";
@@ -8,6 +8,8 @@ import AppLayout from "../layouts/AppLayout";
 // import AdminLayout from "../layouts/AdminLayout";
 import RouteBase from "../components/common/RouteBase";
 import { BASE_ROUTES } from "./constansts";
+import RouteAuth from "../components/common/RouteAuth.jsx";
+import LoginLayout from "../layouts/LoginLayout.jsx";
 
 const MainRoute = () => {
   return (
@@ -27,7 +29,7 @@ const MainRoute = () => {
         })}
       </Route>
 
-      {/* <Route
+      <Route
         path={BASE_ROUTES.AUTH}
         element={<RouteAuth component={LoginLayout} />}
       >
@@ -41,7 +43,7 @@ const MainRoute = () => {
           );
         })}
       </Route>
-
+      {/* 
       <Route
         path={BASE_ROUTES.ADMIN}
         element={<RouteAdmin component={AdminLayout} />}
