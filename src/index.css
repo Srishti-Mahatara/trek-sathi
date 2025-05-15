@@ -1,8 +1,11 @@
-*{
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+* {
   box-sizing: border-box;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
