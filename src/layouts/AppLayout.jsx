@@ -3,10 +3,10 @@ import Header from "../components/partials/Header.jsx";
 import Footer from "../components/partials/Footer.jsx";
 const AppLayout = () => {
   return (
-    <div className="">
-        <Header/>
-            <Outlet />
-        <Footer/>
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };
