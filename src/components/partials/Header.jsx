@@ -15,7 +15,7 @@ export default function Header() {
       component="header"
       className="sticky top-none z-[100] shadow-sm bg-white"
     >
-      <div className="flex items-center justify-between h-[70px] px-[10%]">
+      <div className="flex items-center justify-between h-[70px] px-xl">
         {/* Logo */}
         <Link
           to="/"
