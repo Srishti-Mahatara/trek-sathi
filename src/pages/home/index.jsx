@@ -5,11 +5,13 @@ import SideAttractions from "../../components/modules/home/SideAttractions.jsx";
 import HomeHero from "../../components/modules/home/hero/HomeHero.jsx";
 import Reviews from "../../components/modules/home/Reviews.jsx";
 import ReviewsSection from "../../components/modules/home/Reviews.jsx";
+import {LocationDetailDescription} from "../../components/modules/location-detail/LocationDetailDescription.jsx";
+import {HomeInfoComponent} from "../../components/modules/home/HomeInfoComponent.jsx";
 
 const HomePage = () => {
     return (
-        <div>
-            <div className="relative bg-gray-100 text-gray-900 flex flex-col px-xl pt-md">
+        <div className={'bg-gray-100 pt-md'}>
+            <div className="relative bg-gray-100 text-gray-900 flex flex-col px-xl ">
                 <HomeHero />
             </div>
             <div className=" bg-gray-100 px-xl pb-lg">
@@ -23,9 +25,13 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="bg-gray-100 px-xl pb-lg">
-                <ReviewsSection/>
+            <div className={'px-xl bg-gray-100 mt-2xl'}>
+                <HomeInfoComponent/>
+            </div>
 
+
+            <div className="bg-gray-100 px-xl pb-lg mt-2xl">
+                <ReviewsSection/>
             </div>
         </div>
     );

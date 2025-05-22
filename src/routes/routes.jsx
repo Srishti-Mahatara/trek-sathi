@@ -2,11 +2,14 @@ import LoginPage from "../pages/auth/login/LoginPage";
 import SignupPage from "../pages/auth/signup/SignupPage";
 import HomePage from "../pages/home";
 import { APP_ROUTES, AUTHENTICATION_ROUTES } from "./constansts";
+import {LocationDetail} from "../pages/location-detail/index.jsx";
 
 export const AppRoutes = [
     { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
     { path: APP_ROUTES.APP_PROFILE, element: <div>Profile page</div> },
-    { path: APP_ROUTES.APP_EXPLORE, element: <div>Explore page</div> }];
+    { path: APP_ROUTES.APP_EXPLORE, element: <div>Explore page</div> },
+    {path:APP_ROUTES.LOCATION_DETAIL, element: <LocationDetail/>}
+];
 
 export const AuthRoutes = [
   { path: AUTHENTICATION_ROUTES.AUTH_ROOT, element: <LoginPage /> },

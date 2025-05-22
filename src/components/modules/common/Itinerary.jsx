@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {IconRoute} from "@tabler/icons-react";
 
 const Itinerary = () => {
   const [itineraries, setItineraries] = useState([
@@ -36,9 +37,9 @@ const Itinerary = () => {
   ]);
 
   return (
-    <section className="animate-[fadeIn_0.8s_ease-out_forwards]">
+    <section className="animate-[fadeIn_0.8s_ease-out_forwards] ">
       <h2 className="text-3xl font-bold text-gray-800 mb-md flex items-center gap-[10px]">
-        <i className="fas fa-route"></i> Suggested Daily Itinerary
+        <IconRoute className={"text-primary"}/> Suggested Itinerary
       </h2>
       <div className="relative mb-lgx">
         <div className="absolute bottom-none left-[98px] h-[calc(100%-8px)] w-[2px] bg-primary-light"></div>
