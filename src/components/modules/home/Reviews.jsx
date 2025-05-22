@@ -1,6 +1,7 @@
 
 import React, {useState} from 'react';
-import {Button} from "@mantine/core";
+import {Button, Rating} from "@mantine/core";
+import {IconChevronDown, IconPencil, IconStarFilled, IconThumbUp, IconThumbUpFilled} from "@tabler/icons-react";
 
 const ReviewsSection = () => {
 
@@ -55,12 +56,9 @@ const ReviewsSection = () => {
 
     return (
         <section className="pt-xl bg-white rounded-lg p-lg shadow-md relative overflow-hidden animate-fadeIn">
-            {/* Top border accent */}
-            <div className="absolute top-0 left-[2.5%] right-[2.5%] w-[95%] h-[5px] bg-primary-light opacity-30"></div>
-
             {/* Section title */}
-            <div className="flex items-center gap-xs mb-md mt-lg">
-                <i className="fas fa-star text-primary"></i>
+            <div className="flex items-center gap-xs mb-md ">
+                <IconStarFilled className="text-primary"/>
                 <h2 className="text-xl font-semibold text-gray-800">Reviews & Ratings</h2>
             </div>
 
@@ -69,29 +67,23 @@ const ReviewsSection = () => {
                 <div className="flex items-center gap-md">
                     <div className="text-5xl font-extrabold text-gray-900 leading-none">4.7</div>
                     <div className="flex flex-col gap-xxs">
-                        <div className="text-[#ffd700] text-lg tracking-wider">
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star-half-alt"></i>
-                        </div>
+                        <Rating size="sm" defaultValue={4.7} fractions={4} readOnly />
                         <div className="text-sm text-gray-600">Based on 284 reviews</div>
                     </div>
                 </div>
                 <button className="bg-primary text-white rounded-md py-xs px-sm font-semibold flex items-center gap-xs shadow-sm hover:bg-primary-dark hover:shadow-md transition-all duration-200 hover:-translate-y-[2px]">
-                    <i className="fas fa-pen"></i> Write a Review
+                    <IconPencil/> Write a Review
                 </button>
             </div>
 
             {/* Rating distribution */}
             <div className="flex gap-md mb-lg">
                 {/* Rating bars */}
-                <div className="flex-grow">
+                <div className="flex-grow border-r border-gray-200 pr-md">
                     {[5, 4, 3, 2, 1].map(rating => (
-                        <div key={rating} className="flex items-center gap-xs mb-xs">
-                            <div className="w-[60px] text-right text-sm text-gray-700 flex items-center justify-end gap-[4px]">
-                                {rating} <i className="fas fa-star text-[#ffd700]"></i>
+                        <div key={rating} className="flex items-center gap-md mb-xs ">
+                            <div className="w-xs text-sm text-gray-700 flex items-center justify-start gap-[4px] ">
+                                {rating} <IconStarFilled className="text-[#ffd700]"/>
                             </div>
                             <div className="flex-grow h-[8px] bg-gray-200 rounded-sm overflow-hidden">
                                 <div
@@ -112,15 +104,7 @@ const ReviewsSection = () => {
                         <div key={category.name} className="flex justify-between items-center">
                             <div className="text-sm text-gray-700">{category.name}</div>
                             <div className="flex items-center gap-xs">
-                                <div className="text-[#ffd700] text-sm tracking-wider">
-                                    {[...Array(category.fullStars)].map((_, i) => (
-                                        <i key={i} className="fas fa-star"></i>
-                                    ))}
-                                    {category.halfStar && <i className="fas fa-star-half-alt"></i>}
-                                    {[...Array(5 - category.fullStars - (category.halfStar ? 1 : 0))].map((_, i) => (
-                                        <i key={i} className="far fa-star"></i>
-                                    ))}
-                                </div>
+                                <Rating size="sm" defaultValue={category.value} fractions={4} readOnly />
                                 <div className="text-sm font-semibold text-gray-800">{category.value.toFixed(1)}</div>
                             </div>
                         </div>
@@ -143,12 +127,8 @@ const ReviewsSection = () => {
                                 <div className="font-semibold text-gray-800 mb-[4px]">{review.name}</div>
                                 <div className="text-xs text-gray-500">{review.date}</div>
                             </div>
-                            <div className="text-[#ffd700] text-lg tracking-wider">
-                                {[...Array(Math.floor(review.rating))].map((_, i) => (
-                                    <i key={i} className="fas fa-star"></i>
-                                ))}
-                                {review.rating % 1 !== 0 && <i className="fas fa-star-half-alt"></i>}
-                            </div>
+
+                            <Rating size="sm" defaultValue={review.rating} fractions={4} readOnly />
                         </div>
 
                         <div className="text-gray-700 leading-relaxed text-[15px] mb-md">
@@ -164,9 +144,9 @@ const ReviewsSection = () => {
                         </div>
 
                         <div className="flex justify-between pt-xs border-t border-gray-200">
-                            <button className="bg-transparent border border-gray-300 rounded-sm py-[6px] px-xs text-sm text-gray-700 flex items-center gap-[6px] hover:bg-gray-100 hover:border-gray-400 transition-all duration-200">
-                                <i className="far fa-thumbs-up"></i> Helpful ({review.helpful})
-                            </button>
+                            <Button className="" variant={"outline"} color={"gray"}>
+                               <IconThumbUp className={'text-xs mr-xs'}/> Helpful ({review.helpful})
+                            </Button>
                             <div className="text-sm text-gray-500 cursor-pointer hover:text-primary hover:underline transition-colors duration-200">
                                 Report
                             </div>
@@ -177,7 +157,7 @@ const ReviewsSection = () => {
 
             {/* Show more button */}
             <Button className="bg-transparent border border-primary text-primary rounded-md py-xs px-md font-semibold mx-auto mt-lg flex items-center justify-center gap-xs w-[200px] hover:bg-primary-light hover:text-white transition-all duration-200">
-                <i className="fas fa-chevron-down"></i> Show More Reviews
+                <IconChevronDown/> Show More Reviews
             </Button>
         </section>
     );
