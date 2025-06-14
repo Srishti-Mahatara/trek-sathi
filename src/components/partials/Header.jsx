@@ -1,52 +1,55 @@
-import { Container, Group, Anchor, Box, Button } from "@mantine/core";
+import { Container, Group, Anchor, Box, Button, Burger, Drawer, Stack, ActionIcon } from "@mantine/core";
 import {
   IconGlobe,
   IconCompass,
   IconUserCircle,
   IconLogin,
+  IconX,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router"; // If using React Router
+import { useNavigate } from "react-router";
+import { useState } from "react";
 
 export default function Header() {
   const navigate = useNavigate();
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
+
+  const navLinks = [
+    { to: "/explore", icon: IconCompass, label: "Explore" },
+    { to: "/profile", icon: IconUserCircle, label: "Profile" },
+  ];
+
   return (
     <Box
       component="header"
       className="sticky top-none z-[100] shadow-sm bg-white"
     >
-      <div className="flex items-center justify-between h-[70px] px-xl">
+      <div className="flex items-center justify-between h-[70px] px-sm sm:px-md md:px-xl">
         {/* Logo */}
         <Link
           to="/"
-          className="text-primary text-[24px] font-bold tracking-[-0.5px] flex items-center gap-2 no-underline"
+          className="text-primary text-lg sm:text-[24px] font-bold tracking-[-0.5px] flex items-center gap-2 no-underline"
         >
-          <span className="w-[10px] h-[10px] rounded-full bg-primary inline-block" />
-          <IconGlobe size={20} />
-          Trek-Sathi
+          <span className="w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] rounded-full bg-primary inline-block" />
+          <IconGlobe size={18} className="sm:w-[20px] sm:h-[20px]" />
+          <span className="hidden sm:inline">Trek-Sathi</span>
+          <span className="sm:hidden">TS</span>
         </Link>
 
-        {/* Controls */}
-        <Group gap="lg" className="items-center">
-          <Link
-            to="/explore"
-            className="text-gray-600 font-medium no-underline relative hover:text-primary hover:after:content-[''] hover:after:absolute hover:after:bottom-[-8px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-primary hover:after:scale-x-75 hover:after:transition-transform"
-          >
-            <Group gap={6}>
-              <IconCompass size={18} />
-              Explore
-            </Group>
-          </Link>
-
-          <Link
-            to="/profile"
-            className="text-gray-600 font-medium no-underline relative hover:text-primary hover:after:content-[''] hover:after:absolute hover:after:bottom-[-8px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-primary hover:after:scale-x-75 hover:after:transition-transform"
-          >
-            <Group gap={6}>
-              <IconUserCircle size={18} />
-              Profile
-            </Group>
-          </Link>
+        {/* Desktop Controls */}
+        <Group gap="lg" className="items-center hidden sm:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="text-gray-600 font-medium no-underline relative hover:text-primary hover:after:content-[''] hover:after:absolute hover:after:bottom-[-8px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-primary hover:after:scale-x-75 hover:after:transition-transform"
+            >
+              <Group gap={6}>
+                <link.icon size={18} />
+                {link.label}
+              </Group>
+            </Link>
+          ))}
 
           <Button
             onClick={() => navigate("/auth")}
@@ -55,10 +58,67 @@ export default function Header() {
             <IconLogin size={18} />
             Login
           </Button>
-
-          {/* Example for logout button (if needed in future) */}
-          {/* <div className="bg-primary text-white px-5 py-2 rounded-md cursor-pointer">Logout</div> */}
         </Group>
+
+        {/* Mobile Menu Button */}
+        <Burger
+          opened={mobileMenuOpened}
+          onClick={() => setMobileMenuOpened((o) => !o)}
+          className="sm:hidden"
+          size="sm"
+          color="gray"
+        />
+
+        {/* Mobile Menu Drawer */}
+        <Drawer
+          opened={mobileMenuOpened}
+          onClose={() => setMobileMenuOpened(false)}
+          size="100%"
+          padding="md"
+          className="sm:hidden"
+          position="right"
+          withCloseButton={false}
+        >
+          <div className="flex justify-end mb-xl">
+            <ActionIcon
+              variant="subtle"
+              color="gray"
+              size="xl"
+              onClick={() => setMobileMenuOpened(false)}
+              className="hover:bg-gray-100"
+            >
+              <IconX size={24} />
+            </ActionIcon>
+          </div>
+          <Stack spacing="xl" className="mt-xl">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="text-gray-600 font-medium no-underline text-lg"
+                onClick={() => setMobileMenuOpened(false)}
+              >
+                <Group gap={6}>
+                  <link.icon size={24} />
+                  {link.label}
+                </Group>
+              </Link>
+            ))}
+
+            <Button
+              onClick={() => {
+                navigate("/auth");
+                setMobileMenuOpened(false);
+              }}
+              className="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-md shadow-sm hover:shadow-md transition-all w-full"
+            >
+              <Group gap={6} className="w-full justify-center">
+                <IconLogin size={24} />
+                Login
+              </Group>
+            </Button>
+          </Stack>
+        </Drawer>
       </div>
     </Box>
   );
