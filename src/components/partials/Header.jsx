@@ -1,10 +1,21 @@
-import { Container, Group, Anchor, Box, Button, Burger, Drawer, Stack, ActionIcon } from "@mantine/core";
+import {
+  Container,
+  Group,
+  Anchor,
+  Box,
+  Button,
+  Burger,
+  Drawer,
+  Stack,
+  ActionIcon,
+} from "@mantine/core";
 import {
   IconGlobe,
   IconCompass,
   IconUserCircle,
   IconLogin,
   IconX,
+  IconMessage,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
@@ -17,6 +28,7 @@ export default function Header() {
   const navLinks = [
     { to: "/explore", icon: IconCompass, label: "Explore" },
     { to: "/profile", icon: IconUserCircle, label: "Profile" },
+    { to: "/chat", icon: IconMessage, label: "Chat" },
   ];
 
   return (
