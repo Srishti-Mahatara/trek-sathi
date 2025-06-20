@@ -5,12 +5,14 @@ import { APP_ROUTES, AUTHENTICATION_ROUTES } from "./constansts";
 import { LocationDetail } from "../pages/location-detail/index.jsx";
 import ExplorePage from "../pages/explore/index.jsx";
 import ProfilePage from "../pages/profile/index.jsx";
+import Chat from "../pages/chat/index.jsx";
 
 export const AppRoutes = [
   { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
   { path: APP_ROUTES.APP_PROFILE, element: <ProfilePage /> },
   { path: APP_ROUTES.APP_EXPLORE, element: <ExplorePage /> },
-  { path: APP_ROUTES.LOCATION_DETAIL, element: <LocationDetail /> }
+  { path: APP_ROUTES.LOCATION_DETAIL, element: <LocationDetail /> },
+  { path: APP_ROUTES.APP_CHAT, element: <Chat /> }
 ];
 
 export const AuthRoutes = [

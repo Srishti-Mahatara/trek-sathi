@@ -8,6 +8,7 @@ export const APP_ROUTES = {
   APP_ROOT: "",
   APP_PROFILE: "profile",
   APP_EXPLORE: "explore",
+  APP_CHAT:"chat",
   LOCATION_DETAIL: "location/:id",
 };
 
