@@ -6,13 +6,15 @@ import { LocationDetail } from "../pages/location-detail/index.jsx";
 import ExplorePage from "../pages/explore/index.jsx";
 import ProfilePage from "../pages/profile/index.jsx";
 import Chat from "../pages/chat/index.jsx";
+import ContactUsPage from "../pages/contact-us/index.jsx";
 
 export const AppRoutes = [
   { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
   { path: APP_ROUTES.APP_PROFILE, element: <ProfilePage /> },
   { path: APP_ROUTES.APP_EXPLORE, element: <ExplorePage /> },
   { path: APP_ROUTES.LOCATION_DETAIL, element: <LocationDetail /> },
-  { path: APP_ROUTES.APP_CHAT, element: <Chat /> }
+  { path: APP_ROUTES.APP_CHAT, element: <Chat /> },
+  { path: APP_ROUTES.CONTACT_US, element: <ContactUsPage /> },
 ];
 
 export const AuthRoutes = [
