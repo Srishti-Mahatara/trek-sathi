@@ -9,6 +9,7 @@ import {LocationDetailDescription} from "../../components/modules/location-detai
 import {HomeInfoComponent} from "../../components/modules/home/HomeInfoComponent.jsx";
 
 const HomePage = () => {
+    
     return (
         <div className={'bg-gray-100 pt-md'}>
             <div className="relative bg-gray-100 text-gray-900 flex flex-col px-xl ">
