@@ -1,10 +1,16 @@
 import { Rating } from "@mantine/core";
+import {useNavigate} from "react-router";
 
 const AttractionCard = (props) => {
   const { data } = props;
 
+  const navigate = useNavigate();
+
+
   return (
-    <div className="bg-white rounded-md overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-[10px]">
+    <div className="cursor-pointer bg-white rounded-md overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-[10px]" onClick={(e) => {
+      navigate(`/location/${data.title}`);
+    }}>
       <div className="h-[180px] overflow-hidden">
         <img
           src={data.image}
@@ -13,11 +19,11 @@ const AttractionCard = (props) => {
         />
       </div>
       <div className="p-sm">
-        <a href="location.html" className="no-underline">
+        <div className="no-underline">
           <h3 className="text-lg font-semibold text-gray-800 mb-xs">
             {data.title}
           </h3>
-        </a>
+        </div>
         <p className="text-gray-500 text-sm mb-[10px] flex items-center gap-xxs">
           <i className="fas fa-map-marker-alt"></i> {data.distance} {data.unit}{" "}
           away
