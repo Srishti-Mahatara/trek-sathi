@@ -104,7 +104,7 @@ export const AddExperienceModal = ({ opened, onClose }) => {
         <Modal
             opened={opened}
             onClose={onClose}
-            size={{ base: '100%', sm: '90%', md: '80%', lg: '70%' }}
+            size={'xl'}
             padding={0}
             radius="lg"
             centered
@@ -115,13 +115,13 @@ export const AddExperienceModal = ({ opened, onClose }) => {
             <div className="relative">
                 {/* Modal Header */}
                 <div className="px-xs sm:px-sm py-xs sm:py-sm border-b border-gray-200 flex justify-between items-center">
-                    <h2 className="text-base sm:text-xl font-bold text-gray-900 flex items-center gap-xxs sm:gap-xs">
+                    <h2 className="text-lg sm:text-2xl font-bold text-gray-900 flex items-center gap-xxs sm:gap-xs">
                         <IconCamera className="text-primary" size={20} />
                         Share Experience
                     </h2>
                     <div className="flex items-center gap-xxs sm:gap-xs">
                         <Badge
-                            className="bg-green-500 text-white px-xxs sm:px-xs py-[2px] sm:py-xxs rounded-full text-[9px] sm:text-xs font-semibold"
+                            className="bg-green-500 text-white px-xs sm:px-sm py-[2px] sm:py-xxs rounded-full text-xs sm:text-sm font-semibold"
                             variant="filled"
                         >
                             New Post
@@ -142,7 +142,7 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                         <Grid.Col span={{ base: 12, sm: 8 }}>
                             {/* Location Input */}
                             <div className="mb-xs sm:mb-sm">
-                                <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                     <IconMapPinFilled className="text-primary" size={12} />
                                     Location *
                                 </label>
@@ -151,13 +151,13 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                                     placeholder="e.g., Santorini, Greece"
                                     value={formData.location}
                                     onChange={(e) => handleInputChange('location', e.target.value)}
-                                    className="w-full py-xxs sm:py-xs px-xs border border-gray-200 rounded-md text-xs transition-all duration-200 focus:outline-none focus:border-primary-light focus:shadow-[0_0_0_2px_rgba(0,131,143,0.2)]"
+                                    className="w-full py-xs sm:py-sm px-sm border border-gray-200 rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-primary-light focus:shadow-[0_0_0_2px_rgba(0,131,143,0.2)]"
                                 />
                             </div>
 
                             {/* Experience Content */}
                             <div className="mb-xs sm:mb-sm">
-                                <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                     <IconMessageFilled className="text-primary" size={12} />
                                     Your Experience *
                                 </label>
@@ -166,39 +166,39 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                                     value={formData.content}
                                     onChange={(e) => handleInputChange('content', e.target.value)}
                                     rows={3}
-                                    className="w-full py-xxs sm:py-xs px-xs border border-gray-200 rounded-md text-xs transition-all duration-200 focus:outline-none focus:border-primary-light focus:shadow-[0_0_0_2px_rgba(0,131,143,0.2)] resize-none"
+                                    className="w-full py-xs sm:py-sm px-sm border border-gray-200 rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-primary-light focus:shadow-[0_0_0_2px_rgba(0,131,143,0.2)] resize-none"
                                 />
                             </div>
 
                             {/* Image Upload */}
                             <div className="mb-xs sm:mb-sm">
-                                <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                     <IconCamera className="text-primary" size={12} />
                                     Add Photo
                                 </label>
-                                <div className="border-2 border-dashed border-gray-300 rounded-md p-xs sm:p-sm text-center hover:border-primary-light transition-colors duration-200">
+                                <div className="border-2 border-dashed border-gray-300 rounded-md p-sm sm:p-md text-center hover:border-primary-light transition-colors duration-200">
                                     {imagePreview ? (
                                         <div className="relative">
                                             <img
                                                 src={imagePreview}
                                                 alt="Preview"
-                                                className="w-full h-[120px] sm:h-[160px] object-cover rounded-md mb-xxs sm:mb-xs"
+                                                className="w-full h-[140px] sm:h-[180px] object-cover rounded-md mb-xs sm:mb-sm"
                                             />
                                             <button
                                                 onClick={() => {
                                                     setImagePreview(null);
                                                     setFormData(prev => ({ ...prev, images: [] }));
                                                 }}
-                                                className="absolute top-xxs right-xxs bg-red-500 text-white rounded-full w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] flex items-center justify-center text-[10px] hover:bg-red-600"
+                                                className="absolute top-xxs right-xxs bg-red-500 text-white rounded-full w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] flex items-center justify-center text-xs hover:bg-red-600"
                                             >
                                                 ×
                                             </button>
                                         </div>
                                     ) : (
                                         <div>
-                                            <IconCamera className="mx-auto text-gray-400 mb-xxs" size={20} />
-                                            <p className="text-gray-600 text-[10px] sm:text-xs mb-xxs">Click to upload or drag and drop</p>
-                                            <p className="text-gray-400 text-[9px] sm:text-[10px]">PNG, JPG up to 10MB</p>
+                                            <IconCamera className="mx-auto text-gray-400 mb-xxs" size={24} />
+                                            <p className="text-gray-600 text-xs sm:text-sm mb-xxs">Click to upload or drag and drop</p>
+                                            <p className="text-gray-400 text-xs sm:text-sm">PNG, JPG up to 10MB</p>
                                         </div>
                                     )}
                                 </div>
@@ -206,7 +206,7 @@ export const AddExperienceModal = ({ opened, onClose }) => {
 
                             {/* Travel Tips */}
                             <div className="mb-xs sm:mb-sm">
-                                <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                     <IconBulb className="text-yellow-500" size={12} />
                                     Travel Tips
                                 </label>
@@ -217,12 +217,12 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                                             placeholder="Share a helpful tip..."
                                             value={tip}
                                             onChange={(e) => handleTipChange(index, e.target.value)}
-                                            className="flex-grow py-xxs px-xs border border-gray-200 rounded-md text-xs transition-all duration-200 focus:outline-none focus:border-primary-light focus:shadow-[0_0_0_2px_rgba(0,131,143,0.2)]"
+                                            className="flex-grow py-xs px-sm border border-gray-200 rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-primary-light focus:shadow-[0_0_0_2px_rgba(0,131,143,0.2)]"
                                         />
                                         {formData.tips.length > 1 && (
                                             <button
                                                 onClick={() => removeTip(index)}
-                                                className="bg-red-100 text-red-600 px-xxs rounded-md hover:bg-red-200 transition-colors duration-200 text-[10px] sm:text-xs whitespace-nowrap"
+                                                className="bg-red-100 text-red-600 px-xs rounded-md hover:bg-red-200 transition-colors duration-200 text-xs sm:text-sm whitespace-nowrap"
                                             >
                                                 Remove
                                             </button>
@@ -231,7 +231,7 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                                 ))}
                                 <button
                                     onClick={addTip}
-                                    className="text-primary text-[10px] sm:text-xs font-medium flex items-center gap-xxs hover:text-primary-dark transition-colors duration-200"
+                                    className="text-primary text-xs sm:text-sm font-medium flex items-center gap-xxs hover:text-primary-dark transition-colors duration-200"
                                 >
                                     <IconPlus size={12} />
                                     Add Another Tip
@@ -242,18 +242,18 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                         {/* Right Column - Additional Info */}
                         <Grid.Col span={{ base: 12, sm: 4 }}>
                             <div className="bg-gray-50 p-xs sm:p-sm rounded-md h-fit mt-xs sm:mt-0">
-                                <h3 className="text-sm sm:text-base font-semibold text-gray-800 mb-xxs sm:mb-xs">Additional Details</h3>
+                                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-xxs sm:mb-xs">Additional Details</h3>
 
                                 {/* Duration */}
                                 <div className="mb-xxs sm:mb-xs">
-                                    <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                    <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                         <IconClockFilled className="text-primary" size={10} />
                                         Duration
                                     </label>
                                     <select
                                         value={formData.duration}
                                         onChange={(e) => handleInputChange('duration', e.target.value)}
-                                        className="w-full py-xxs px-xxs border border-gray-200 rounded-md text-xs focus:outline-none focus:border-primary-light"
+                                        className="w-full py-xs px-xs border border-gray-200 rounded-md text-sm focus:outline-none focus:border-primary-light"
                                     >
                                         <option value="">Select duration</option>
                                         {durationOptions.map(duration => (
@@ -264,14 +264,14 @@ export const AddExperienceModal = ({ opened, onClose }) => {
 
                                 {/* Season */}
                                 <div className="mb-xxs sm:mb-xs">
-                                    <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                    <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                         <IconCalendar className="text-primary" size={10} />
                                         Season
                                     </label>
                                     <select
                                         value={formData.season}
                                         onChange={(e) => handleInputChange('season', e.target.value)}
-                                        className="w-full py-xxs px-xxs border border-gray-200 rounded-md text-xs focus:outline-none focus:border-primary-light"
+                                        className="w-full py-xs px-xs border border-gray-200 rounded-md text-sm focus:outline-none focus:border-primary-light"
                                     >
                                         <option value="">Select season</option>
                                         {seasonOptions.map(season => (
@@ -282,7 +282,7 @@ export const AddExperienceModal = ({ opened, onClose }) => {
 
                                 {/* Weather */}
                                 <div className="mb-xxs sm:mb-xs">
-                                    <label className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                    <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                         <IconCloudFilled className="text-primary" size={10} />
                                         Weather
                                     </label>
@@ -300,7 +300,7 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                                                         className="text-primary focus:ring-primary"
                                                     />
                                                     <IconComponent size={12} className="text-yellow-500" />
-                                                    <span className="text-[10px] sm:text-xs text-gray-700">{weather.label}</span>
+                                                    <span className="text-xs sm:text-sm text-gray-700">{weather.label}</span>
                                                 </label>
                                             );
                                         })}
@@ -309,19 +309,19 @@ export const AddExperienceModal = ({ opened, onClose }) => {
 
                                 {/* Preview */}
                                 <div className="mt-xs sm:mt-sm pt-xxs sm:pt-xs border-t border-gray-200">
-                                    <h4 className="text-[11px] sm:text-xs font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
+                                    <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-xxs flex items-center gap-xxs">
                                         <IconEye className="text-primary" size={10} />
                                         Preview
                                     </h4>
-                                    <div className="bg-white p-xxs rounded-md border border-gray-200 text-[9px] sm:text-[10px]">
-                                        <div className="font-semibold text-gray-800 mb-xxs">
+                                    <div className="bg-white p-xs rounded-md border border-gray-200 text-xs sm:text-sm">
+                                        <div className="font-semibold text-gray-800 mb-xxs text-sm">
                                             {formData.location || 'Your Location'}
                                         </div>
-                                        <div className="text-gray-600 line-clamp-2">
+                                        <div className="text-gray-600 line-clamp-2 text-xs">
                                             {formData.content || 'Your travel experience will appear here...'}
                                         </div>
                                         {formData.duration && (
-                                            <div className="text-primary text-[9px] sm:text-[10px] mt-xxs">
+                                            <div className="text-primary text-xs sm:text-sm mt-xxs">
                                                 Duration: {formData.duration}
                                             </div>
                                         )}
@@ -340,12 +340,12 @@ export const AddExperienceModal = ({ opened, onClose }) => {
                         onClick={onClose}
                         radius="md"
                         size="xs"
-                        className="flex-1 sm:flex-none text-[10px] sm:text-xs"
+                        className="flex-1 sm:flex-none text-xs sm:text-sm"
                     >
                         Cancel
                     </Button>
                     <Button
-                        className="bg-primary hover:bg-primary-dark flex-1 sm:flex-none text-[10px] sm:text-xs"
+                        className="bg-primary hover:bg-primary-dark flex-1 sm:flex-none text-xs sm:text-sm"
                         onClick={handleSubmit}
                         radius="md"
                         size="xs"
