@@ -42,7 +42,7 @@ export const PostModal = ({ post, opened, onClose }) => {
         <Modal
             opened={opened}
             onClose={onClose}
-            size={{ base: '100%', sm: '90%', md: '80%', lg: '70%' }}
+            size={'xl'}
             padding={0}
             radius="lg"
             centered

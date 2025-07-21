@@ -1,4 +1,4 @@
-import { Rating } from "@mantine/core";
+import { Button, Rating } from "@mantine/core";
 import {useNavigate} from "react-router";
 
 const AttractionCard = (props) => {
@@ -8,8 +8,12 @@ const AttractionCard = (props) => {
 
 
   return (
-    <div className="cursor-pointer bg-white rounded-md overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-[10px]" onClick={(e) => {
-      navigate(`/location/${data.title}`);
+    <div className="cursor-pointer bg-white rounded-md overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-[10px]" onClick={() => {
+      if (data.type === "hotel") {
+        navigate(`/hotel/${data.id ?? data.title}`);
+      } else {
+        navigate(`/location/${data.id ?? data.title}`);
+      }
     }}>
       <div className="h-[180px] overflow-hidden">
         <img
@@ -31,10 +35,19 @@ const AttractionCard = (props) => {
         <p className="text-gray-600 text-sm mb-xs leading-normal">
           {data.description}
         </p>
-        <div className="flex items-center gap-xxs text-yellow-500 text-sm">
-          <Rating defaultValue={data.rating} fractions={2} readOnly />
-          <span className="text-gray-700 ml-xxs">{data.rating}</span>
+        <div className="flex items-center justify-between gap-xxs text-yellow-500 text-sm">
+          <div className="flex gap-xxs items-center">
+            <Rating defaultValue={data.rating} fractions={2} readOnly />
+            <span className="text-gray-700 ml-xxs">{data.rating}</span>
+          </div>
+          {
+            data.type=="hotel" && <Button className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-dark text-white">
+              Book Now
+            </Button>
+          }
+         
         </div>
+        
       </div>
     </div>
   );

@@ -25,6 +25,7 @@ const SideAttractions = () => {
       reviews: 245,
       category: "Nature",
       bookmarked: false,
+      id: 1,
     },
     {
       image: "https://lp-cms-production.imgix.net/2019-06/53693064.jpg",
@@ -36,6 +37,7 @@ const SideAttractions = () => {
       reviews: 128,
       category: "Adventure",
       bookmarked: true,
+      id: 2,
     },
     {
       image: "https://lp-cms-production.imgix.net/2019-06/53693064.jpg",
@@ -47,6 +49,7 @@ const SideAttractions = () => {
       reviews: 312,
       category: "Culture",
       bookmarked: false,
+      id: 3,
     },
     {
       image: "https://lp-cms-production.imgix.net/2019-06/53693064.jpg",
@@ -58,6 +61,7 @@ const SideAttractions = () => {
       reviews: 189,
       category: "Nature",
       bookmarked: false,
+      id: 4,
     },
     {
       image: "https://lp-cms-production.imgix.net/2019-06/53693064.jpg",
@@ -69,6 +73,7 @@ const SideAttractions = () => {
       reviews: 167,
       category: "Nature",
       bookmarked: true,
+      id: 5,
     },
   ]);
 
@@ -194,7 +199,7 @@ const CompactAttractionItem = ({ data, onBookmark, getCategoryColor }) => {
             {/* Action Button */}
             <div
               onClick={(e) => {
-                navigate(`/location/${data.title}`);
+                  navigate(`/location/${data.id ?? data.title}`);
               }}
               className="text-sm font-medium text-primary flex  items-center gap-xxs "
             >
