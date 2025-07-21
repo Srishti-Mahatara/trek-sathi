@@ -13,9 +13,12 @@ const HomeHeroWeather = (props) => {
             <IconCloudFilled className="text-primary-light" /> {weather.sky}
           </div>
 
-          <div className="text-xs text-gray-500 mt-0">
-            H: {weather.highestTemperature}°{weather.unit} | L:{" "}
-            {weather.lowestTemperature}°{weather.unit}
+          <div className="text-xs text-gray-500 mt-[2px]">
+            H: {weather.highestTemperature}°{weather.unit} | L: {weather.lowestTemperature}°{weather.unit}
+          </div>
+          <div className="text-xs text-gray-500 mt-[2px] flex gap-xs">
+            <span><i className="fas fa-globe"></i> Lat: {demographic.latitude}</span>
+            <span><i className="fas fa-globe"></i> Long: {demographic.longitude}</span>
           </div>
         </div>
         <div className="flex flex-col justify-between w-[40%]">

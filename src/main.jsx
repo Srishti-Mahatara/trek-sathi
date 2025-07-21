@@ -7,6 +7,7 @@ import App from "./App.jsx";
 
 // Change the import order - first Mantine, then your custom CSS
 import "@mantine/core/styles.css";
+import '@mantine/dates/styles.css';
 import "./index.css"; // Tailwind styles
 import "./App.css";   // Your custom styles last for highest precedence
 
