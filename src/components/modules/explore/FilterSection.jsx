@@ -1,7 +1,7 @@
 import { IconClockFilled, IconFlameFilled, IconHeartFilled, IconSearch, IconStarFilled } from "@tabler/icons-react";
 import { useState } from "react";
 
-export const FiltersSection = () => {
+export const FiltersSection = ({isAdmin=false}) => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -10,7 +10,7 @@ export const FiltersSection = () => {
         { name: 'Trending', icon: IconFlameFilled },
         { name: 'Top Rated', icon: IconStarFilled },
         { name: 'Recent', icon: IconClockFilled },
-        { name: 'Favorites', icon: IconHeartFilled },
+        !isAdmin && { name: 'Favorites', icon: IconHeartFilled },
     ];
 
     return (

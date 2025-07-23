@@ -1,164 +1,40 @@
-import { useState } from 'react';
+import React from 'react';
 import cx from 'clsx';
 import { Avatar, Badge, Button, Checkbox, Group, ScrollArea, Table, Text } from '@mantine/core';
 import classes from './UserTableSelection.module.css';
-import React from 'react';
 import { IconBan, IconTrash, IconLockOpen } from '@tabler/icons-react';
 
-const data = [
-  {
-    id: '1',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png',
-    name: 'Robert Wolfkisser',
-    email: 'rob_wolf@gmail.com',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-  {
-    id: '2',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png',
-    name: 'Jill Jailbreaker',
-    email: 'jj@breaker.com',
-    created_at: '2025-02-22',
-    status: 'Blocked',
-  },
-  {
-    id: '3',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png',
-    name: 'Henry Silkeater',
-    email: 'henry@silkeater.io',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-  {
-    id: '4',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-3.png',
-    name: 'Bill Horsefighter',
-    email: 'bhorsefighter@gmail.com',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },  {
-    id: '5',
-    avatar:
-      'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png',
-    name: 'Jeremy Footviewer',
-    email: 'jeremy@foot.dev',
-    created_at: '2025-02-22',
-    status: 'Active',
-  },
-];
+export interface User {
+  id: string;
+  avatar: string;
+  name: string;
+  email: string;
+  created_at: string;
+  status: string;
+}
 
-export function UserTableSelection() {
-  const [selection, setSelection] = useState(['1']);
+interface UserTableSelectionProps {
+  data: User[];
+  selection: string[];
+  setSelection: (ids: string[]) => void;
+}
+
+export function UserTableSelection({ data, selection, setSelection }: UserTableSelectionProps) {
   const toggleRow = (id: string) =>
-    setSelection((current) =>
-      current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
+    setSelection(
+      selection.includes(id)
+        ? selection.filter((item) => item !== id)
+        : [...selection, id]
     );
   const toggleAll = () =>
-    setSelection((current) => (current.length === data.length ? [] : data.map((item) => item.id)));
+    setSelection(selection.length === data.length ? [] : data.map((item) => item.id));
 
   const rows = data.map((item) => {
     const selected = selection.includes(item.id);
     return (
       <Table.Tr key={item.id} className={cx({ [classes.rowSelected]: selected })}>
         <Table.Td>
-          <Checkbox checked={selection.includes(item.id)} onChange={() => toggleRow(item.id)} />
+          <Checkbox checked={selected} onChange={() => toggleRow(item.id)} />
         </Table.Td>
         <Table.Td>
           <Group gap="sm">

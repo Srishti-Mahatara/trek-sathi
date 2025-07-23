@@ -14,14 +14,16 @@ import Users from "../pages/admin/Users.jsx";
 import Locations from "../pages/admin/Locations.jsx";
 import Hotels from "../pages/admin/Hotels.jsx";
 import Posts from "../pages/admin/Posts.jsx";
+import ForgotPasswordPage from "../pages/auth/forgot/ForgotPasswordPage";
+import VerifyStatusPage from "../pages/auth/verify/VerifyStatusPage";
 
 export const AppRoutes = [
   { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
   { path: APP_ROUTES.APP_PROFILE, element: <ProfilePage /> },
   { path: APP_ROUTES.APP_EXPLORE, element: <ExplorePage /> },
   { path: APP_ROUTES.LOCATION_DETAIL, element: <LocationDetail /> },
-  { path: "hotel/:id", element: <HotelDetail /> },
-  { path: "search", element: <SearchPage /> },
+  { path: APP_ROUTES.HOTEL_DETAIL, element: <HotelDetail /> },
+  { path: APP_ROUTES.SEARCH, element: <SearchPage /> },
   { path: APP_ROUTES.APP_CHAT, element: <Chat /> },
   { path: APP_ROUTES.CONTACT_US, element: <ContactUsPage /> },
 ];
@@ -29,6 +31,8 @@ export const AppRoutes = [
 export const AuthRoutes = [
   { path: AUTHENTICATION_ROUTES.AUTH_ROOT, element: <LoginPage /> },
   { path: AUTHENTICATION_ROUTES.AUTH_SIGNUP, element: <SignupPage /> },
+  { path: AUTHENTICATION_ROUTES.AUTH_FORGOT, element: <ForgotPasswordPage /> },
+  { path: AUTHENTICATION_ROUTES.AUTH_VERIFY, element: <VerifyStatusPage /> },
 ];
 
 export const AdminRoutes = [

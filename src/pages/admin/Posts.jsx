@@ -172,7 +172,7 @@ const Posts = () => {
           </div>
         </Group>
 
-        <FiltersSection />
+        <FiltersSection isAdmin={true}/>
 
         <section className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-[20px]">
             {postsData.map((post, index) => (

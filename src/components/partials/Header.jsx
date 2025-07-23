@@ -16,6 +16,7 @@ import {
   IconLogin,
   IconX,
   IconMessage,
+  IconSearch,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
@@ -26,9 +27,11 @@ export default function Header() {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
   const navLinks = [
+    {to: "/search", icon:IconSearch, label:"Search"},
     { to: "/explore", icon: IconCompass, label: "Explore" },
     { to: "/profile", icon: IconUserCircle, label: "Profile" },
     { to: "/chat", icon: IconMessage, label: "Chat" },
+    
   ];
 
   return (
@@ -49,7 +52,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Controls */}
-        <Group gap="lg" className="items-center hidden sm:flex">
+        <Group gap="xl" className="items-center hidden sm:flex">
           {navLinks.map((link) => (
             <Link
               key={link.to}

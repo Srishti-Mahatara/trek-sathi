@@ -71,8 +71,8 @@ const LoginPage = () => {
                   <Text
                       size="sm"
                       component="a"
-                      href="#"
                       className="text-primary cursor-pointer"
+                      onClick={() => navigate('/auth/forgot')}
                   >
                     Forgot password?
                   </Text>
