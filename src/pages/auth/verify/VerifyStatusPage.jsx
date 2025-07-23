@@ -6,11 +6,10 @@ import {
   Title,
   Stack,
 } from "@mantine/core";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 
 const VerifyStatusPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   // Simulate status from query param or state
   // In real app, parse location.search or location.state
   const status = "success"; // "success" or "expired"
@@ -31,9 +30,9 @@ const VerifyStatusPage = () => {
                 <Button
                   fullWidth
                   className="bg-primary text-white w-full rounded-full mt-md"
-                  onClick={() => navigate("/auth")}
+                  onClick={() => navigate("/auth/reset")}
                 >
-                  Go to Login
+                  Set New Password
                 </Button>
               </>
             ) : (

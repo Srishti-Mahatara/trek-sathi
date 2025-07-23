@@ -20,6 +20,7 @@ export const AUTHENTICATION_ROUTES = {
   AUTH_SIGNUP: "signup",
   AUTH_FORGOT: "forgot",
   AUTH_VERIFY: "verify",
+  AUTH_RESET: "reset",
 };
 
 export const ADMIN_ROUTES = {

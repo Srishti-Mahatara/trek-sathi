@@ -16,6 +16,7 @@ import Hotels from "../pages/admin/Hotels.jsx";
 import Posts from "../pages/admin/Posts.jsx";
 import ForgotPasswordPage from "../pages/auth/forgot/ForgotPasswordPage";
 import VerifyStatusPage from "../pages/auth/verify/VerifyStatusPage";
+import ResetPasswordPage from "../pages/auth/reset/ResetPasswordPage";
 
 export const AppRoutes = [
   { path: APP_ROUTES.APP_ROOT, element: <HomePage /> },
@@ -33,6 +34,7 @@ export const AuthRoutes = [
   { path: AUTHENTICATION_ROUTES.AUTH_SIGNUP, element: <SignupPage /> },
   { path: AUTHENTICATION_ROUTES.AUTH_FORGOT, element: <ForgotPasswordPage /> },
   { path: AUTHENTICATION_ROUTES.AUTH_VERIFY, element: <VerifyStatusPage /> },
+  { path: AUTHENTICATION_ROUTES.AUTH_RESET, element: <ResetPasswordPage /> },
 ];
 
 export const AdminRoutes = [
