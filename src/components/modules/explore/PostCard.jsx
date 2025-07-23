@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { IconHeart, IconMessageFilled, IconShare, IconSend, IconMapPinFilled } from '@tabler/icons-react';
+import { IconHeart, IconMessageFilled, IconShare, IconSend, IconMapPinFilled, IconDotsVertical, IconTrash } from '@tabler/icons-react';
 import { PostModal } from './PostModal';
+import { Menu, ActionIcon } from '@mantine/core';
 
-export const PostCard = ({ post }) => {
+export const PostCard = ({ post, isAdmin = false }) => {
     const [liked, setLiked] = useState(false);
     const [showComments, setShowComments] = useState(false);
     const [newComment, setNewComment] = useState('');
@@ -25,28 +26,52 @@ export const PostCard = ({ post }) => {
         setShowComments(!showComments);
     };
 
+    // Dummy delete handler
+    const handleDelete = () => {
+        // Implement delete logic here
+        alert('Delete post');
+    };
+
     return (
         <>
             <PostModal post={post} opened={modalOpened} onClose={() => setModalOpened(false)} />
             <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-[4px] hover:shadow-lg animate-fadeIn h-fit">
                 {/* Post Header */}
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-xs sm:p-sm border-b border-gray-200 gap-xs sm:gap-none">
-                    <div className="flex items-center gap-xs w-full sm:w-auto">
-                        <div className="w-[36px] sm:w-[40px] rounded-full overflow-hidden flex-shrink-0">
-                            <img
-                                src={post.userAvatar}
-                                alt="User Avatar"
-                                className="w-full h-full object-cover"
-                            />
+                    <div className="flex flex-col gap-xxs w-full sm:w-auto">
+                        <div className="flex items-center gap-xs">
+                            <div className="w-[36px] sm:w-[40px] rounded-full overflow-hidden flex-shrink-0">
+                                <img
+                                    src={post.userAvatar}
+                                    alt="User Avatar"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <div className="font-semibold text-gray-800 text-sm sm:text-base">{post.username}</div>
+                                <div className="text-xs text-gray-500">{post.postTime}</div>
+                            </div>
                         </div>
-                        <div className="flex flex-col">
-                            <div className="font-semibold text-gray-800 text-sm sm:text-base">{post.username}</div>
-                            <div className="text-xs text-gray-500">{post.postTime}</div>
+                        <div className="bg-gray-100 rounded-full px-xs py-xxs text-xs text-primary-dark font-medium flex items-center gap-xxs w-fit mt-xxs">
+                            <IconMapPinFilled size={14} className="text-primary mb-xxs" />
+                            {post.location}
                         </div>
                     </div>
-                    <div className="bg-gray-100 rounded-full px-xs py-xxs text-xs text-primary-dark font-medium flex items-center gap-xxs w-fit">
-                        <IconMapPinFilled size={14} className="text-primary mb-xxs" />
-                        {post.location}
+                    <div className="flex items-center gap-xs w-full sm:w-auto justify-end">
+                        {isAdmin && (
+                            <Menu shadow="md" width={160} position="bottom-end" withinPortal>
+                                <Menu.Target>
+                                    <ActionIcon variant="subtle" color="gray" size="lg" aria-label="Post actions">
+                                        <IconDotsVertical size={20} />
+                                    </ActionIcon>
+                                </Menu.Target>
+                                <Menu.Dropdown>
+                                    <Menu.Item color="red" leftSection={<IconTrash size={16} />} onClick={handleDelete}>
+                                        Delete Post
+                                    </Menu.Item>
+                                </Menu.Dropdown>
+                            </Menu>
+                        )}
                     </div>
                 </div>
 
@@ -105,6 +130,9 @@ export const PostCard = ({ post }) => {
                                     <span className="text-[10px] sm:text-xs text-gray-500">{comment.time}</span>
                                     <span className="text-[10px] sm:text-xs text-gray-600 font-medium cursor-pointer transition-colors duration-200 hover:text-primary">Like</span>
                                     <span className="text-[10px] sm:text-xs text-gray-600 font-medium cursor-pointer transition-colors duration-200 hover:text-primary">Reply</span>
+                                    {isAdmin && 
+                                    <span className="text-[10px] sm:text-xs text-gray-600 font-medium cursor-pointer transition-colors duration-200 hover:text-primary">Delete</span>
+                                    }
                                 </div>
                             </div>
                         </div>

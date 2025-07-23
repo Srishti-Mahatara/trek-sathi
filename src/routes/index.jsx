@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-import { AppRoutes, AuthRoutes } from "./routes";
+import { AppRoutes, AuthRoutes, AdminRoutes } from "./routes";
 import AppLayout from "../layouts/AppLayout";
 
 // import LoginLayout from "../layouts/LoginLayout";
 // import RouteAuth from "../components/common/RouteAuth";
 // import RouteAdmin from "../components/common/RouteAdmin";
-// import AdminLayout from "../layouts/AdminLayout";
+import AdminLayout from "../layouts/AdminLayout";
 import RouteBase from "../components/common/RouteBase";
 import { BASE_ROUTES } from "./constansts";
 import RouteAuth from "../components/common/RouteAuth.jsx";
 import LoginLayout from "../layouts/LoginLayout.jsx";
+import RouteAdmin from "../components/common/RouteAdmin.jsx";
 
 const MainRoute = () => {
   return (
@@ -43,7 +44,7 @@ const MainRoute = () => {
           );
         })}
       </Route>
-      {/* 
+      
       <Route
         path={BASE_ROUTES.ADMIN}
         element={<RouteAdmin component={AdminLayout} />}
@@ -57,7 +58,7 @@ const MainRoute = () => {
             />
           );
         })}
-      </Route> */}
+      </Route>
     </Routes>
   );
 };

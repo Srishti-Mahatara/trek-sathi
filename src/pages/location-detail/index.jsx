@@ -80,9 +80,6 @@ export const LocationDetail = () => {
                 <Itinerary />
             </div>
         </section>
-
-
-
         <ReviewsSection/>
     </div>
 }

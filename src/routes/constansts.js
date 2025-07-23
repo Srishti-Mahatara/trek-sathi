@@ -20,4 +20,8 @@ export const AUTHENTICATION_ROUTES = {
 
 export const ADMIN_ROUTES = {
   DASHBOARD_ROOT: "",
+  DASHBOARD_USERS: "users",
+  DASHBOARD_LOCATIONS: "locations",
+  DASHBOARD_HOTELS: "hotels",
+  DASHBOARD_POSTS: "posts",
 };
