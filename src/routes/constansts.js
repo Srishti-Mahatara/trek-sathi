@@ -4,6 +4,12 @@ export const BASE_ROUTES = {
   ADMIN: "/dashboard",
 };
 
+export const AUTHENTICATED_ROUTES = {
+  APP_PROFILE: "profile",
+  APP_EXPLORE: "explore",
+  APP_CHAT: "chat",
+};
+
 export const APP_ROUTES = {
   APP_ROOT: "",
   APP_PROFILE: "profile",
